@@ -11,7 +11,7 @@ function FadeInUp({ children }) {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     if (boxRef.current) {
       observer.observe(boxRef.current);
@@ -64,7 +64,7 @@ function TypingText({ text, boldWords = [] }) {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
     if (boxRef.current) {
       observer.observe(boxRef.current);
@@ -104,7 +104,7 @@ function TypingText({ text, boldWords = [] }) {
         split.forEach((chunk, i) => {
           if (i > 0) {
             nextParts.push(
-              <strong key={`${word}-${i}-${chunk.length}`}>{word}</strong>
+              <strong key={`${word}-${i}-${chunk.length}`}>{word}</strong>,
             );
           }
           nextParts.push(chunk);
@@ -116,7 +116,10 @@ function TypingText({ text, boldWords = [] }) {
   }
 
   return (
-    <h2 ref={boxRef} className="text-xl md:text-2xl font-bold text-white text-center py-16 min-h-[6rem]">
+    <h2
+      ref={boxRef}
+      className="text-xl md:text-2xl font-bold text-white text-center py-16 min-h-[6rem]"
+    >
       {renderTyped()}
       <span className="animate-pulse">|</span>
     </h2>
@@ -138,24 +141,26 @@ function Hero() {
         <div className="relative z-10 px-8 md:px-20 max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
             상상을 현실로 만드는
-            <br />
-            내 손 안에 <span className="text-blue-500">스쿠스쿠</span>
+            <br />내 손 안에 <span className="text-blue-500">스쿠스쿠</span>
           </h1>
-          <p className="text-white font-semibold mb-2">성결대학교 멋쟁이사자처럼은</p>
+          <p className="text-white font-semibold mb-2">
+            성결대학교 멋쟁이사자처럼은
+          </p>
           <p className="text-neutral-300 mb-8">
-            자신이 원하는 IT 서비스를 직접 구현하고 싶은 성결대학교 학생들이 모인 동아리입니다.
+            자신이 원하는 IT 서비스를 직접 구현하고 싶은 성결대학교 학생들이
+            모인 동아리입니다.
           </p>
         </div>
       </FadeInOnLoad>
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-400">
-  <span className="text-sm">Scroll down</span>
-  <img
-    src="/img/Mouse.png"
-    alt="마우스 아이콘"
-    className="w-5 h-6 object-contain animate-bounce"
-  />
-</div>
+        <span className="text-sm">Scroll down</span>
+        <img
+          src="/img/Mouse.png"
+          alt="마우스 아이콘"
+          className="w-5 h-6 object-contain animate-bounce"
+        />
+      </div>
     </section>
   );
 }
@@ -165,7 +170,7 @@ function Directions() {
   return (
     <section className="relative py-24 px-8 md:px-20 overflow-hidden">
       <img
-        src="/img/Main3_2.png"
+        src="/img/Main2.jpeg"
         alt="배경"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -174,12 +179,17 @@ function Directions() {
       <div className="relative z-10">
         <FadeInUp>
           <div className="text-center mb-14">
-            <p className="text-neutral-400 text-sm mb-2">성결대학교 멋쟁이사자처럼의</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white">3가지 방향성</h2>
+            <p className="text-neutral-400 text-sm mb-2">
+              성결대학교 멋쟁이사자처럼의
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              3가지 방향성
+            </h2>
           </div>
         </FadeInUp>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* 3개의 카드 레이아웃 */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           <FadeInUp>
             <div className="bg-blue-800/60 rounded-2xl p-8 h-full">
               <div className="flex justify-between items-start mb-6">
@@ -187,7 +197,9 @@ function Directions() {
                 <img src="/img/Self.png" alt="" className="w-8 h-8" />
               </div>
               <p className="text-blue-50/90 text-sm">
-                나만의 커리어를 직접 설계하고, 만들어갈 수 있습니다.
+                나만의 커리어를 직접 설계하고,
+                <br />
+                만들어갈 수 있습니다.
               </p>
             </div>
           </FadeInUp>
@@ -199,7 +211,8 @@ function Directions() {
                 <img src="/img/cooperation.png" alt="" className="w-8 h-8" />
               </div>
               <p className="text-blue-50/90 text-sm">
-                동료들과 개발 고민을 함께 협력하고 공유하며, 성장할 수 있습니다
+                동료들과 개발 고민을 함께 <br /> 협력하고 공유하며,
+                <br /> 성장할 수 있습니다
               </p>
             </div>
           </FadeInUp>
@@ -211,18 +224,41 @@ function Directions() {
                 <img src="/img/Possibility.png" alt="" className="w-8 h-8" />
               </div>
               <p className="text-blue-50/90 text-sm">
-                나만의 커리어를 직접 설계하고, 만들어갈 수 있습니다
+                나만의 커리어를 직접 설계하고,
+                <br /> 만들어갈 수 있습니다
               </p>
             </div>
           </FadeInUp>
         </div>
+        <br />
+        <br />
+        <FadeInUp>
+          <div className="text-center text-lg md:text-xl text-white font-light tracking-wide leading-loose mt-12">
+            <span className="text-2xl md:text-3xl font-bold">
+              "내 아이디어를 내 손으로 실현한다."
+            </span>
+            라는 모토를 가지고,
+            <br />
+            실제 서비스를 구현하며 개발자의 꿈을 이루는데
+            <br />
+            한걸음 더 다아가고자 합니다.
+          </div>
+        </FadeInUp>
       </div>
     </section>
   );
 }
 
 /* 활동 소개 (스터디 / 정기세션 / 아이디어톤 / 해커톤 / MT) */
-function ActivityItem({ imageSrc, title, accent, desc, location, time, reverse }) {
+function ActivityItem({
+  imageSrc,
+  title,
+  accent,
+  desc,
+  location,
+  time,
+  reverse,
+}) {
   const image = (
     <FadeInUp>
       <img
@@ -279,16 +315,20 @@ function Activities() {
         imageSrc="/img/Main3_3.png"
         title="함께 공부하는"
         accent="스터디"
-        desc={"공부하고 싶은 트랙을 함께 공부하며 지식을 습득할 수 있는 학습의 장이 마련됩니다."}
+        desc={
+          "공부하고 싶은 트랙을 함께 공부하며 지식을 습득할 수 있는 학습의 장이 마련됩니다."
+        }
         location="성결대학교 성결관"
         time="스터디별 상이 (스쿠스쿠 사이버캠퍼스 내 일정 참고)"
         reverse
       />
       <ActivityItem
-        imageSrc="/img/Main2.jpeg"
+        imageSrc="/img/Main3_2.png"
         title="세분화된 교육,"
         accent="정기세션"
-        desc={"트랙별로 맞춤 교육을 제공합니다.\n매주 정기세션에서 아기사자들과 운영진이 함께 성장합니다."}
+        desc={
+          "트랙별로 맞춤 교육을 제공합니다.\n매주 정기세션에서 아기사자들과 운영진이 함께 성장합니다."
+        }
         location="성결대학교 성결관"
         time="매주 목요일 18시-21시"
       />
@@ -296,7 +336,9 @@ function Activities() {
         imageSrc="/img/Main3_3.png"
         title="서비스의 초석"
         accent="아이디어톤"
-        desc={"서비스 아이디어를 다듬고 실현 가능성을 테스트하는 시간입니다. 열정적인 토론과 발표로 아이디어의 깊이를 더합니다."}
+        desc={
+          "서비스 아이디어를 다듬고 실현 가능성을 테스트하는 시간입니다. 열정적인 토론과 발표로 아이디어의 깊이를 더합니다."
+        }
         location="성결대학교 성결관"
         time="스터디별 상이(스쿠스쿠 사이버캠퍼스 내 일정 참고)"
         reverse
@@ -305,7 +347,9 @@ function Activities() {
         imageSrc="/img/Main3_4.png"
         title="상상을 현실로 만드는"
         accent="해커톤"
-        desc={"주어진 시간 안에 팀을 이뤄 서비스를 기획/개발합니다.\n실전 감각을 익히고 팀워크를 높이는 경험을 제공합니다."}
+        desc={
+          "주어진 시간 안에 팀을 이뤄 서비스를 기획/개발합니다.\n실전 감각을 익히고 팀워크를 높이는 경험을 제공합니다."
+        }
         location="학교 강의실"
         time="학기당 1회"
       />
@@ -313,7 +357,9 @@ function Activities() {
         imageSrc="/img/Main3_5.png"
         title="하계"
         accent="MT"
-        desc={"팀워크를 다지는 특별한 시간!\n친목과 소통을 통해 끈끈한 유대감을 형성합니다."}
+        desc={
+          "팀워크를 다지는 특별한 시간!\n친목과 소통을 통해 끈끈한 유대감을 형성합니다."
+        }
         location="성결대학교 외부 장소"
         time="방학 중 진행"
         reverse
@@ -380,7 +426,10 @@ function Tracks() {
         {active && (
           <p className="text-neutral-300 text-sm md:text-base">
             상상을 현실로 만드는 시작,{" "}
-            <span className={`font-bold ${active.textColor}`}>{active.label}</span>팀 커리큘럼을 소개합니다.
+            <span className={`font-bold ${active.textColor}`}>
+              {active.label}
+            </span>
+            팀 커리큘럼을 소개합니다.
           </p>
         )}
       </div>
@@ -400,8 +449,16 @@ function Tracks() {
             >
               <img src={track.icon} alt="" className="w-6 h-6" />
               <div className="text-left">
-                <p className="text-white text-sm font-semibold">{track.label}</p>
-                <p className={active ? "text-white/70 text-xs" : "text-neutral-500 text-xs"}>
+                <p className="text-white text-sm font-semibold">
+                  {track.label}
+                </p>
+                <p
+                  className={
+                    active
+                      ? "text-white/70 text-xs"
+                      : "text-neutral-500 text-xs"
+                  }
+                >
                   {track.sub}
                 </p>
               </div>
@@ -418,7 +475,9 @@ function Tracks() {
                     {step}
                   </p>
                   <div className="w-full flex items-center">
-                    <div className={`h-[2px] flex-1 bg-white/40 ${i === 0 ? "opacity-0" : ""}`} />
+                    <div
+                      className={`h-[2px] flex-1 bg-white/40 ${i === 0 ? "opacity-0" : ""}`}
+                    />
                     <div className="w-3 h-3 rounded-full bg-white shrink-0" />
                     <div
                       className={`h-[2px] flex-1 bg-white/40 ${
@@ -612,8 +671,13 @@ function Projects() {
       <div
         ref={trackRef}
         className="projects-track flex gap-6 overflow-x-auto px-8 select-none cursor-grab active:cursor-grabbing"
-        onMouseEnter={() => { isPaused.current = true; }}
-        onMouseLeave={() => { isPaused.current = false; handleDragEnd(); }}
+        onMouseEnter={() => {
+          isPaused.current = true;
+        }}
+        onMouseLeave={() => {
+          isPaused.current = false;
+          handleDragEnd();
+        }}
         onMouseDown={handleDragStart}
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
