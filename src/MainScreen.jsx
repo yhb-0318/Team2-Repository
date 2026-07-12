@@ -149,13 +149,13 @@ function Hero() {
       </FadeInOnLoad>
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-400">
-  <span className="text-sm">Scroll down</span>
-  <img
-    src="/img/Mouse.png"
-    alt="마우스 아이콘"
-    className="w-5 h-6 object-contain animate-bounce"
-  />
-</div>
+        <span className="text-sm">Scroll down</span>
+        <img
+          src="/img/Mouse.png"
+          alt="마우스 아이콘"
+          className="w-5 h-6 object-contain animate-bounce"
+        />
+      </div>
     </section>
   );
 }
@@ -181,10 +181,10 @@ function Directions() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <FadeInUp>
-            <div className="bg-blue-800/60 rounded-2xl p-8 h-full">
+            <div className="bg-blue-500 rounded-2xl p-8 h-full">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-xl font-bold text-white">자기주도성</h3>
-                <img src="/img/Self.png" alt="" className="w-8 h-8" />
+                <img src="/img/Self.png" alt="" className="w-10 h-8" />
               </div>
               <p className="text-blue-50/90 text-sm">
                 나만의 커리어를 직접 설계하고, 만들어갈 수 있습니다.
@@ -193,7 +193,7 @@ function Directions() {
           </FadeInUp>
 
           <FadeInUp>
-            <div className="bg-blue-600 rounded-2xl p-8 h-full md:scale-105">
+            <div className="bg-blue-700 rounded-2xl p-8 h-full">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-xl font-bold text-white">협력성</h3>
                 <img src="/img/cooperation.png" alt="" className="w-8 h-8" />
@@ -205,7 +205,7 @@ function Directions() {
           </FadeInUp>
 
           <FadeInUp>
-            <div className="bg-blue-800/60 rounded-2xl p-8 h-full">
+            <div className="bg-blue-950 rounded-2xl p-8 h-full">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-xl font-bold text-white">가능성</h3>
                 <img src="/img/Possibility.png" alt="" className="w-8 h-8" />
@@ -215,6 +215,18 @@ function Directions() {
               </p>
             </div>
           </FadeInUp>
+          <FadeInUp>
+  <div className="text-center text-neutral-300 text-sm md:text-base space-y-1">
+    <p>
+      <span className="font-bold text-white">
+        "내 아이디어를 내 손으로 실현한다."
+      </span>{" "}
+      라는 모토를 가지고,
+    </p>
+    <p>실제 서비스를 구현하며 개발자의 꿈을 이루는데</p>
+    <p>한걸음 더 다가가고자 합니다.</p>
+  </div>
+</FadeInUp>
         </div>
       </div>
     </section>
