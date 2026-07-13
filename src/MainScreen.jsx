@@ -51,9 +51,7 @@ function FadeInOnLoad({ children, delay = 100 }) {
   );
 }
 
-/* 스크롤로 화면에 들어올 때마다 한 글자씩 다시 타이핑됨.
-   화면 밖으로 나가면 초기화되고, 다시 들어오면 처음부터 재생.
-   boldWords에 넣은 단어는 타이핑이 끝나면 굵은 글씨로 표시됨 */
+/* 스크롤로 화면에 들어올 때마다 한 글자씩 다시 타이핑됨. */
 function TypingText({ text, boldWords = [] }) {
   const boxRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -116,7 +114,7 @@ function TypingText({ text, boldWords = [] }) {
   }
 
   return (
-    <section className="bg-neutral-950 py-32 md:py-40 flex items-center justify-center">
+    <section className="bg-neutral-900 py-32 md:py-40 flex items-center justify-center">
       <h2
         ref={boxRef}
         className="text-xl md:text-2xl font-bold text-white text-center px-8"
@@ -186,16 +184,19 @@ function Directions() {
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-white">
               3가지 방향성
+              <br />
+              <br />
             </h2>
           </div>
         </FadeInUp>
 
-        {/* 3개의 카드 레이아웃 */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           <FadeInUp>
             <div className="bg-blue-500 rounded-2xl p-8 h-full flex items-center justify-between gap-4">
               <div>
-                <h3 className="text-xl font-bold text-white mb-3">자기주도성</h3>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  자기주도성
+                </h3>
                 <p className="text-blue-50/90 text-xs">
                   나만의 커리어를 직접 설계하고,
                   <br />
@@ -215,7 +216,11 @@ function Directions() {
                   <br /> 성장할 수 있습니다
                 </p>
               </div>
-              <img src="/img/cooperation.png" alt="" className="w-18 h-8 shrink-0" />
+              <img
+                src="/img/cooperation.png"
+                alt=""
+                className="w-18 h-8 shrink-0"
+              />
             </div>
           </FadeInUp>
 
@@ -228,13 +233,19 @@ function Directions() {
                   <br /> 만들어갈 수 있습니다
                 </p>
               </div>
-              <img src="/img/Possibility.png" alt="" className="w-13 h-13 shrink-0" />
+              <img
+                src="/img/Possibility.png"
+                alt=""
+                className="w-13 h-13 shrink-0"
+              />
             </div>
           </FadeInUp>
         </div>
 
         <FadeInUp>
           <div className="text-center text-sm md:text-base text-white font-light tracking-wide leading-loose mt-12">
+            <br />
+            <br />
             <span className="text-base md:text-lg font-bold">
               "내 아이디어를 내 손으로 실현한다."
             </span>
@@ -250,7 +261,7 @@ function Directions() {
   );
 }
 
-/* 활동 소개 (스터디 / 정기세션 / 아이디어톤 / 해커톤 / MT) */
+/* 활동 소개 */
 function ActivityItem({
   imageSrc,
   title,
@@ -317,9 +328,7 @@ function Activities() {
           imageSrc="/img/Main3_3.png"
           title="함께 공부하는"
           accent="스터디"
-          desc={
-            "공부하고 싶은 트랙을 함께 공부하며 지식을 습득할 수 있는 학습의 장이 마련됩니다."
-          }
+          desc="공부하고 싶은 트랙을 함께 공부하며 지식을 습득할 수 있는 학습의 장이 마련됩니다."
           location="성결대학교 성결관"
           time="스터디별 상이 (스쿠스쿠 사이버캠퍼스 내 일정 참고)"
           reverse
@@ -338,9 +347,7 @@ function Activities() {
           imageSrc="/img/Main3_3.png"
           title="서비스의 초석"
           accent="아이디어톤"
-          desc={
-            "서비스 아이디어를 다듬고 실현 가능성을 테스트하는 시간입니다. 열정적인 토론과 발표로 아이디어의 깊이를 더합니다."
-          }
+          desc="서비스 아이디어를 다듬고 실현 가능성을 테스트하는 시간입니다. 열정적인 토론과 발표로 아이디어의 깊이를 더합니다."
           location="성결대학교 성결관"
           time="스터디별 상이(스쿠스쿠 사이버캠퍼스 내 일정 참고)"
           reverse
@@ -371,7 +378,7 @@ function Activities() {
   );
 }
 
-/* TRACKS - 클릭하면 해당 트랙 색깔 배너로 바뀌면서 커리큘럼 로드맵이 나오는 탭 */
+/* TRACKS */
 const TRACKS_DATA = {
   frontend: {
     label: "프론트엔드",
@@ -420,7 +427,7 @@ function Tracks() {
   }, []);
 
   return (
-    <section ref={wrapperRef} className="bg-neutral-950">
+    <section ref={wrapperRef} className="bg-neutral-900">
       <div className="text-center py-20 px-8">
         <p className="text-blue-500 font-semibold mb-3">TRACKS</p>
         <p className="text-neutral-300 text-sm md:text-base mb-2">
@@ -506,10 +513,7 @@ function Tracks() {
   );
 }
 
-/* PROJECTS - 카드가 자동으로 옆으로 흘러가는 캐러셀.
-   각 카드는 클릭하면 해당 프로젝트 링크(link)로 새 탭에서 이동함.
-   드래그(끌기)와 클릭(이동)을 구분해서, 드래그하다가 실수로 링크 이동되는 걸 방지함.
-   썸네일 5개: /public/img/ 안에 project1.png ~ project5.png 넣어주면 됨 */
+/* PROJECTS */
 function Projects() {
   const projects = [
     {
@@ -598,28 +602,24 @@ function Projects() {
     },
   ];
 
-  // 끊김 없이 계속 흘러가는 것처럼 보이도록 리스트를 두 번 이어붙임
   const loopProjects = [...projects, ...projects];
-
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const isPaused = useRef(false);
   const startX = useRef(0);
   const startScrollLeft = useRef(0);
-  const dragDistance = useRef(0); // 드래그 vs 클릭 구분용
+  const dragDistance = useRef(0);
 
-  // 자동 스크롤: requestAnimationFrame으로 scrollLeft를 조금씩 증가시킴
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     let rafId;
-    const speed = 0.6; // 프레임당 이동 픽셀 (숫자 키우면 더 빨라짐)
+    const speed = 0.6;
 
     function step() {
       if (!isPaused.current && !isDragging.current) {
         track.scrollLeft += speed;
-        // 리스트 절반(=원본 한 세트) 지점을 넘어가면 앞으로 되감아서 무한 루프처럼 보이게 함
         if (track.scrollLeft >= track.scrollWidth / 2) {
           track.scrollLeft -= track.scrollWidth / 2;
         }
@@ -652,7 +652,6 @@ function Projects() {
     isDragging.current = false;
   }
 
-  // 카드를 5px 이상 끌었으면 드래그로 간주하고 링크 이동을 막음
   function handleCardClick(e) {
     if (dragDistance.current > 5) {
       e.preventDefault();
@@ -660,14 +659,10 @@ function Projects() {
   }
 
   return (
-    <section className="bg-black py-24 overflow-hidden">
+    <section className="bg-neutral-910 py-24 overflow-hidden">
       <style>{`
-        .projects-track {
-          scrollbar-width: none;
-        }
-        .projects-track::-webkit-scrollbar {
-          display: none;
-        }
+        .projects-track { scrollbar-width: none; }
+        .projects-track::-webkit-scrollbar { display: none; }
       `}</style>
 
       <FadeInUp>
@@ -726,7 +721,7 @@ function Projects() {
 
 export default function MainScreen() {
   return (
-    <div className="bg-neutral-950">
+    <div className="bg-neutral-900">
       <Hero />
       <Directions />
       <TypingText
