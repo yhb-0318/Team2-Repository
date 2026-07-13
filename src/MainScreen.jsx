@@ -116,13 +116,15 @@ function TypingText({ text, boldWords = [] }) {
   }
 
   return (
-    <h2
-      ref={boxRef}
-      className="text-xl md:text-2xl font-bold text-white text-center py-16 min-h-[6rem]"
-    >
-      {renderTyped()}
-      <span className="animate-pulse">|</span>
-    </h2>
+    <section className="bg-neutral-950 py-32 md:py-40 flex items-center justify-center">
+      <h2
+        ref={boxRef}
+        className="text-xl md:text-2xl font-bold text-white text-center px-8"
+      >
+        {renderTyped()}
+        <span className="animate-pulse">|</span>
+      </h2>
+    </section>
   );
 }
 
@@ -135,11 +137,11 @@ function Hero() {
         alt="동아리 활동 사진"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/80" />
 
       <FadeInOnLoad>
         <div className="relative z-10 px-8 md:px-20 max-w-3xl">
-          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-lg md:text-3xl font-bold text-white leading-tight mb-6">
             상상을 현실로 만드는
             <br />내 손 안에 <span className="text-blue-500">스쿠스쿠</span>
           </h1>
@@ -191,57 +193,56 @@ function Directions() {
         {/* 3개의 카드 레이아웃 */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           <FadeInUp>
-            <div className="bg-blue-800/60 rounded-2xl p-8 h-full">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-bold text-white">자기주도성</h3>
-                <img src="/img/Self.png" alt="" className="w-8 h-8" />
+            <div className="bg-blue-500 rounded-2xl p-8 h-full flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">자기주도성</h3>
+                <p className="text-blue-50/90 text-xs">
+                  나만의 커리어를 직접 설계하고,
+                  <br />
+                  만들어갈 수 있습니다.
+                </p>
               </div>
-              <p className="text-blue-50/90 text-sm">
-                나만의 커리어를 직접 설계하고,
-                <br />
-                만들어갈 수 있습니다.
-              </p>
+              <img src="/img/Self.png" alt="" className="w-12 h-12 shrink-0" />
             </div>
           </FadeInUp>
 
           <FadeInUp>
-            <div className="bg-blue-600 rounded-2xl p-8 h-full md:scale-105">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-bold text-white">협력성</h3>
-                <img src="/img/cooperation.png" alt="" className="w-8 h-8" />
+            <div className="bg-blue-700 rounded-2xl p-8 h-full flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">협력성</h3>
+                <p className="text-blue-50/90 text-xs">
+                  동료들과 개발 고민을 함께 <br /> 협력하고 공유하며,
+                  <br /> 성장할 수 있습니다
+                </p>
               </div>
-              <p className="text-blue-50/90 text-sm">
-                동료들과 개발 고민을 함께 <br /> 협력하고 공유하며,
-                <br /> 성장할 수 있습니다
-              </p>
+              <img src="/img/cooperation.png" alt="" className="w-18 h-8 shrink-0" />
             </div>
           </FadeInUp>
 
           <FadeInUp>
-            <div className="bg-blue-800/60 rounded-2xl p-8 h-full">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-bold text-white">가능성</h3>
-                <img src="/img/Possibility.png" alt="" className="w-8 h-8" />
+            <div className="bg-blue-950 rounded-2xl p-8 h-full flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-3">가능성</h3>
+                <p className="text-blue-50/90 text-xs">
+                  나만의 커리어를 직접 설계하고,
+                  <br /> 만들어갈 수 있습니다
+                </p>
               </div>
-              <p className="text-blue-50/90 text-sm">
-                나만의 커리어를 직접 설계하고,
-                <br /> 만들어갈 수 있습니다
-              </p>
+              <img src="/img/Possibility.png" alt="" className="w-13 h-13 shrink-0" />
             </div>
           </FadeInUp>
         </div>
-        <br />
-        <br />
+
         <FadeInUp>
-          <div className="text-center text-lg md:text-xl text-white font-light tracking-wide leading-loose mt-12">
-            <span className="text-2xl md:text-3xl font-bold">
+          <div className="text-center text-sm md:text-base text-white font-light tracking-wide leading-loose mt-12">
+            <span className="text-base md:text-lg font-bold">
               "내 아이디어를 내 손으로 실현한다."
             </span>
             라는 모토를 가지고,
             <br />
             실제 서비스를 구현하며 개발자의 꿈을 이루는데
             <br />
-            한걸음 더 다아가고자 합니다.
+            한걸음 더 다가가고자 합니다.
           </div>
         </FadeInUp>
       </div>
@@ -276,11 +277,11 @@ function ActivityItem({
       </h3>
       <p className="text-neutral-400 mb-6 whitespace-pre-line">{desc}</p>
       <div className="flex items-center gap-2 text-sm text-neutral-400 mb-1">
-        <img src="/img/place.png" alt="" className="w-4 h-4" />
+        <img src="/img/place.png" alt="" className="w-3 h-4" />
         {location}
       </div>
       <div className="flex items-center gap-2 text-sm text-neutral-400">
-        <img src="/img/date.png" alt="" className="w-4 h-4" />
+        <img src="/img/date.png" alt="" className="w-3 h-3" />
         {time}
       </div>
     </FadeInUp>
@@ -305,65 +306,67 @@ function ActivityItem({
 
 function Activities() {
   return (
-    <section className="bg-neutral-950 px-8 md:px-20 max-w-6xl mx-auto">
-      <FadeInUp>
-        <p className="text-blue-400 font-semibold text-center pt-16 pb-2">
-          @2026 PROGRAM info
-        </p>
-      </FadeInUp>
-      <ActivityItem
-        imageSrc="/img/Main3_3.png"
-        title="함께 공부하는"
-        accent="스터디"
-        desc={
-          "공부하고 싶은 트랙을 함께 공부하며 지식을 습득할 수 있는 학습의 장이 마련됩니다."
-        }
-        location="성결대학교 성결관"
-        time="스터디별 상이 (스쿠스쿠 사이버캠퍼스 내 일정 참고)"
-        reverse
-      />
-      <ActivityItem
-        imageSrc="/img/Main3_2.png"
-        title="세분화된 교육,"
-        accent="정기세션"
-        desc={
-          "트랙별로 맞춤 교육을 제공합니다.\n매주 정기세션에서 아기사자들과 운영진이 함께 성장합니다."
-        }
-        location="성결대학교 성결관"
-        time="매주 목요일 18시-21시"
-      />
-      <ActivityItem
-        imageSrc="/img/Main3_3.png"
-        title="서비스의 초석"
-        accent="아이디어톤"
-        desc={
-          "서비스 아이디어를 다듬고 실현 가능성을 테스트하는 시간입니다. 열정적인 토론과 발표로 아이디어의 깊이를 더합니다."
-        }
-        location="성결대학교 성결관"
-        time="스터디별 상이(스쿠스쿠 사이버캠퍼스 내 일정 참고)"
-        reverse
-      />
-      <ActivityItem
-        imageSrc="/img/Main3_4.png"
-        title="상상을 현실로 만드는"
-        accent="해커톤"
-        desc={
-          "주어진 시간 안에 팀을 이뤄 서비스를 기획/개발합니다.\n실전 감각을 익히고 팀워크를 높이는 경험을 제공합니다."
-        }
-        location="학교 강의실"
-        time="학기당 1회"
-      />
-      <ActivityItem
-        imageSrc="/img/Main3_5.png"
-        title="하계"
-        accent="MT"
-        desc={
-          "팀워크를 다지는 특별한 시간!\n친목과 소통을 통해 끈끈한 유대감을 형성합니다."
-        }
-        location="성결대학교 외부 장소"
-        time="방학 중 진행"
-        reverse
-      />
+    <section className="bg-[#1e1e1e]">
+      <div className="px-8 md:px-20 max-w-6xl mx-auto">
+        <FadeInUp>
+          <p className="text-blue-400 font-semibold text-center pt-16 pb-2">
+            @2026 PROGRAM info
+          </p>
+        </FadeInUp>
+        <ActivityItem
+          imageSrc="/img/Main3_3.png"
+          title="함께 공부하는"
+          accent="스터디"
+          desc={
+            "공부하고 싶은 트랙을 함께 공부하며 지식을 습득할 수 있는 학습의 장이 마련됩니다."
+          }
+          location="성결대학교 성결관"
+          time="스터디별 상이 (스쿠스쿠 사이버캠퍼스 내 일정 참고)"
+          reverse
+        />
+        <ActivityItem
+          imageSrc="/img/Main3_2.png"
+          title="세분화된 교육,"
+          accent="정기세션"
+          desc={
+            "트랙별로 맞춤 교육을 제공합니다.\n매주 정기세션에서 아기사자들과 운영진이 함께 성장합니다."
+          }
+          location="성결대학교 성결관"
+          time="매주 목요일 18시-21시"
+        />
+        <ActivityItem
+          imageSrc="/img/Main3_3.png"
+          title="서비스의 초석"
+          accent="아이디어톤"
+          desc={
+            "서비스 아이디어를 다듬고 실현 가능성을 테스트하는 시간입니다. 열정적인 토론과 발표로 아이디어의 깊이를 더합니다."
+          }
+          location="성결대학교 성결관"
+          time="스터디별 상이(스쿠스쿠 사이버캠퍼스 내 일정 참고)"
+          reverse
+        />
+        <ActivityItem
+          imageSrc="/img/Main3_4.png"
+          title="상상을 현실로 만드는"
+          accent="해커톤"
+          desc={
+            "주어진 시간 안에 팀을 이뤄 서비스를 기획/개발합니다.\n실전 감각을 익히고 팀워크를 높이는 경험을 제공합니다."
+          }
+          location="학교 강의실"
+          time="학기당 1회"
+        />
+        <ActivityItem
+          imageSrc="/img/Main3_5.png"
+          title="하계"
+          accent="MT"
+          desc={
+            "팀워크를 다지는 특별한 시간!\n친목과 소통을 통해 끈끈한 유대감을 형성합니다."
+          }
+          location="성결대학교 외부 장소"
+          time="방학 중 진행"
+          reverse
+        />
+      </div>
     </section>
   );
 }
@@ -395,8 +398,8 @@ const TRACKS_DATA = {
     label: "기획/디자인",
     sub: "PM / DESIGN",
     icon: "/img/Main4_figma.png",
-    color: "bg-pink-600",
-    textColor: "text-pink-400",
+    color: "bg-[#CF637E]",
+    textColor: "text-[#CF637E]",
     steps: ["UX/UI 교육", "Figma 교육", "앱/웹 디자인", "포트폴리오"],
   },
 };
@@ -437,38 +440,46 @@ function Tracks() {
       <div
         className={`border-t border-white/10 transition-colors duration-300 ${
           active ? active.color : "bg-neutral-800"
-        } py-6`}
+        } py-4`}
       >
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3">
-          {Object.entries(TRACKS_DATA).map(([key, track]) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setActiveKey(key === activeKey ? null : key)}
-              className="flex items-center justify-center gap-3 py-6"
-            >
-              <img src={track.icon} alt="" className="w-6 h-6" />
-              <div className="text-left">
-                <p className="text-white text-sm font-semibold">
-                  {track.label}
-                </p>
-                <p
-                  className={
-                    active
-                      ? "text-white/70 text-xs"
-                      : "text-neutral-500 text-xs"
-                  }
-                >
-                  {track.sub}
-                </p>
-              </div>
-            </button>
-          ))}
-        </div>
+        {!active && (
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3">
+            {Object.entries(TRACKS_DATA).map(([key, track]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setActiveKey(key)}
+                className="flex items-center justify-center gap-3 py-6"
+              >
+                <img src={track.icon} alt="" className="w-6 h-6" />
+                <div className="text-left">
+                  <p className="text-white text-sm font-semibold">
+                    {track.label}
+                  </p>
+                  <p className="text-neutral-500 text-xs">{track.sub}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
 
         {active && (
-          <div className="max-w-5xl mx-auto px-8 pt-2 pb-4">
-            <div className="flex items-start">
+          <div className="max-w-5xl mx-auto px-8 flex items-center gap-10">
+            <button
+              type="button"
+              onClick={() => setActiveKey(null)}
+              className="flex items-center gap-3 shrink-0"
+            >
+              <img src={active.icon} alt="" className="w-6 h-6" />
+              <div className="text-left">
+                <p className="text-white text-sm font-semibold">
+                  {active.label}
+                </p>
+                <p className="text-white/70 text-xs">{active.sub}</p>
+              </div>
+            </button>
+
+            <div className="flex items-start flex-1">
               {active.steps.map((step, i) => (
                 <div key={step} className="flex-1 flex flex-col items-center">
                   <p className="text-white text-xs md:text-sm text-center mb-3 whitespace-pre-line">
