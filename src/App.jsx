@@ -1,19 +1,26 @@
 import React from "react";
-import Header from "./components/Header";
-import TeamScreen from "./TeamScreen";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainScreen from "./MainScreen";
+import TeamScreen from "./TeamScreen";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <Header />
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
 
-      <MainScreen />
-      <TeamScreen />
-
-      <Footer />
-    </>
+        {/*  주소에 따라 바뀌는 본문 영역 */}
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<MainScreen />} />
+            <Route path="/team" element={<TeamScreen />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

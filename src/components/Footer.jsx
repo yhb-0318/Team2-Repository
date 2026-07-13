@@ -28,31 +28,31 @@ const Footer = () => {
 
           <div>
             <h3 class="text-[#3061ca] font-bold mb-5">
-              <a href="#">TEAM</a>
+              <a href="/team">TEAM</a>
             </h3>
             <ul class="space-y-6">
               <li>
-                <a href="#">14기</a>
+                <a href="/team?tab=14">14기</a>
               </li>
               <li>
-                <a href="#">13기</a>
+                <a href="/team?tab=13">13기</a>
               </li>
               <li>
-                <a href="#">12기</a>
+                <a href="/team?tab=12">12기</a>
               </li>
               <li>
-                <a href="#">11기</a>
+                <a href="/team?tab=11">11기</a>
               </li>
             </ul>
           </div>
           <div>
             <h3 class="text-[#3061ca] font-bold mb-5">
               {" "}
-              <a href="#">COMMUNITY</a>
+              <p>COMMUNITY</p>
             </h3>
             <ul class="space-y-6">
               <li>
-                <a href="#">모집공고</a>
+                <p>모집공고</p>
               </li>
             </ul>
           </div>
@@ -80,7 +80,7 @@ const Footer = () => {
           <div class="w-[1px] h-10 bg-[#1a1a1a] self-center "></div>
 
           {/* 가운데 CONTACT */}
-          <div class="flex flex-col items-center px-10 mr-30">
+          <div class="flex flex-col items-center px-10 mr-100">
             <h3 class="text-white font-bold mb-5 ">CONTACT</h3>
             <div class="flex gap-4">
               <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center">

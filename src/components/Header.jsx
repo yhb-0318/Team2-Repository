@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const Header = () => {
   // 드롭다운 열림/닫힘 상태 관리
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // 마우스가 나갔을 때 타이머를 저장할 Ref
+  const leaveTimer = useRef(null);
+
+  // 마우스가 들어왔을 때
+  const handleMouseEnter = () => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    setIsDropdownOpen(true);
+  };
+
+  // 마우스가 나갔을 때 (0.1초 뒤에 닫히게 하여 클릭 이벤트를 보장)
+  const handleMouseLeave = () => {
+    leaveTimer.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 100); // 100ms 정도의 유예 시간을 줍니다.
+  };
 
   return (
     // 1. 헤더 위쪽에 하얀 공간을 심기 위해 전체를 감싸는 부모 태그
-    // 💡 아래 본문 콘텐츠(main, div 등)가 헤더 위로 덮어쓰지 못하도록 zIndex를 확실하게 높였습니다.
     <div style={{ position: "relative", zIndex: 99999 }}>
       {/* 2. [위쪽 숨겨진 하얀 상자] 위로 스크롤 쭉 당기면 보이는 여백 */}
       <div
@@ -29,10 +43,7 @@ const Header = () => {
           top: 0,
           left: 0,
           width: "100%",
-          // 드롭다운 열리면 헤더 배경도 완전히 하얗게(#ffffff) 전환
           backgroundColor: isDropdownOpen ? "#ffffff" : "transparent",
-          // 💡 평소 투명일 때 뒤의 본문 글씨가 헤더 메뉴와 겹쳐서 난잡해지는 것을 막기 위해 강력한 blur를 주거나,
-          // 만약 본문 배경이 하얀색이라 메뉴(#FFF)가 안 보였던 거라면 본문 자체에 어두운 배경을 주셔야 합니다.
           backdropFilter: isDropdownOpen
             ? "none"
             : "blur(40px) brightness(0.8)",
@@ -40,21 +51,19 @@ const Header = () => {
           alignItems: "center",
           padding: "0 48px",
           boxSizing: "border-box",
-          // 드롭다운 열리면 하단 선이 연한 검정/회색 톤으로 전환
           borderBottom: isDropdownOpen
             ? "1px solid rgba(0, 0, 0, 0.1)"
             : "1px solid rgba(255, 255, 255, 0.8)",
-          zIndex: 100000, // 💡 본문 글씨가 절대 위로 튀어나오지 못하게 zIndex 최상위 부여
+          zIndex: 100000,
         }}
-        onMouseEnter={() => setIsDropdownOpen(true)}
-        onMouseLeave={() => setIsDropdownOpen(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {/* 로고 영역 */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            flexShrink: 0,
             width: "52px",
           }}
         >
@@ -68,7 +77,7 @@ const Header = () => {
           </a>
         </div>
 
-        {/* 브랜드 타이틀 명 */}
+        {/* 타이틀 명 */}
         <a
           href="/"
           style={{
@@ -76,7 +85,6 @@ const Header = () => {
             fontSize: "20.7px",
             fontWeight: "1000",
             width: "180px",
-            flexShrink: 0,
           }}
         >
           LIKELION SKU
@@ -87,9 +95,8 @@ const Header = () => {
           <div style={{ width: "100px", textAlign: "center" }}>
             <a
               href="#"
-              onClick={(e) => e.preventDefault()}
               style={{
-                color: isDropdownOpen ? "#1e1e1e" : "#FFF", // 💡 흰 배경 스크롤 시 이 부분이 겹침의 주원인입니다.
+                color: isDropdownOpen ? "#1e1e1e" : "#FFF",
                 textDecoration: "none",
                 fontSize: "16px",
                 fontWeight: "500",
@@ -102,8 +109,7 @@ const Header = () => {
             style={{ width: "100px", textAlign: "center", marginLeft: "40px" }}
           >
             <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
+              href="/team"
               style={{
                 color: isDropdownOpen ? "#1e1e1e" : "#FFF",
                 textDecoration: "none",
@@ -119,7 +125,6 @@ const Header = () => {
           >
             <a
               href="#"
-              onClick={(e) => e.preventDefault()}
               style={{
                 color: isDropdownOpen ? "#1e1e1e" : "#FFF",
                 textDecoration: "none",
@@ -138,10 +143,8 @@ const Header = () => {
             display: "flex",
             alignItems: "center",
             marginLeft: "auto",
-            flexShrink: 0,
           }}
         >
-          {/* 💡 해결 1: 드롭다운이 열린(isDropdownOpen === true) 상태에서만 인스타, 챗 아이콘이 나타납니다 */}
           {isDropdownOpen && (
             <div style={{ display: "flex", gap: "10px", marginRight: "16px" }}>
               <a href="https://www.instagram.com/likelion_sku">
@@ -167,7 +170,6 @@ const Header = () => {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              // 💡 해결 2: 드롭다운이 열리면 좀 더 연한 파란색(#4b7bec)으로, 평소에는 진한 파란색(#2d5abc)으로 세팅합니다.
               backgroundColor: isDropdownOpen ? "#8eb7ff" : "#2d5abc",
               color: "white",
               padding: "8px 16px",
@@ -224,15 +226,13 @@ const Header = () => {
             borderRadius: "0",
             borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
             boxShadow: "0px 15px 20px rgba(0, 0, 0, 0.05)",
-            cursor: "default",
-            zIndex: 99999, // 💡 드롭다운도 본문 글씨를 확실하게 덮도록 zIndex 상향
           }}
         >
           <div style={{ display: "flex" }}>
             {/* 좌측 여백 정렬용 투명 공간 */}
-            <div style={{ width: "252px", flexShrink: 0 }} />
+            <div style={{ width: "252px" }} />
 
-            {/* 1열: PROJECT 서브메뉴 */}
+            {/* 1열: PROJECT 서브메뉴 (이동 가능하게 수정 완료) */}
             <div
               style={{
                 display: "flex",
@@ -244,7 +244,6 @@ const Header = () => {
             >
               <a
                 href="#"
-                onClick={(e) => e.preventDefault()}
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -256,7 +255,6 @@ const Header = () => {
               </a>
               <a
                 href="#"
-                onClick={(e) => e.preventDefault()}
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -268,7 +266,6 @@ const Header = () => {
               </a>
               <a
                 href="#"
-                onClick={(e) => e.preventDefault()}
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -280,7 +277,6 @@ const Header = () => {
               </a>
               <a
                 href="#"
-                onClick={(e) => e.preventDefault()}
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -304,8 +300,7 @@ const Header = () => {
               }}
             >
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="/team?tab=14"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -316,8 +311,7 @@ const Header = () => {
                 14기
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="/team?tab=13"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -328,8 +322,7 @@ const Header = () => {
                 13기
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="/team?tab=12"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -340,8 +333,7 @@ const Header = () => {
                 12기
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="/team?tab=11"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -364,9 +356,7 @@ const Header = () => {
                 marginLeft: "40px",
               }}
             >
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+              <span
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -375,7 +365,7 @@ const Header = () => {
                 }}
               >
                 모집공고
-              </a>
+              </span>
             </div>
           </div>
         </div>
