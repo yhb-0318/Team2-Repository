@@ -1,112 +1,123 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Footer = () => {
   return (
     <>
-      <footer class="bg-black text-white px-10 pt-16 pb-10 font-sans text-sm">
-        {/* 상단 링크 영역 */}
-        <div class="max-w-6xl mx-auto flex gap-24 mb-12">
+      <footer class="bg-black text-[#bbbbbb] px-10 pt-20  pb-30 font-sans ">
+        {/* 상단 링크 영역*/}
+        <div class="pl-30 mx-auto flex gap-24 mb-20">
           <div>
-            <h3 class="text-[#2b66ff] font-bold mb-5">PROJECT</h3>
-            <ul class="space-y-3 text-gray-400">
+            <h3 class="text-[#3061ca] font-bold mb-5">
+              <a href="#">PROJECT</a>
+            </h3>
+            <ul class="space-y-6">
               <li>
-                <a href="#" class="hover:text-white">
-                  14기
-                </a>
+                <a href="#">14기</a>
               </li>
               <li>
-                <a href="#" class="hover:text-white">
-                  13기
-                </a>
+                <a href="#">13기</a>
               </li>
               <li>
-                <a href="#" class="hover:text-white">
-                  12기
-                </a>
+                <a href="#">12기</a>
               </li>
               <li>
-                <a href="#" class="hover:text-white">
-                  11기
-                </a>
+                <a href="#">11기</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-[#3061ca] font-bold mb-5">
+              <a href="#">TEAM</a>
+            </h3>
+            <ul class="space-y-6">
+              <li>
+                <a href="#">14기</a>
+              </li>
+              <li>
+                <a href="#">13기</a>
+              </li>
+              <li>
+                <a href="#">12기</a>
+              </li>
+              <li>
+                <a href="#">11기</a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 class="text-[#2b66ff] font-bold mb-5">TEAM</h3>
-            <ul class="space-y-3 text-gray-400">
+            <h3 class="text-[#3061ca] font-bold mb-5">
+              {" "}
+              <a href="#">COMMUNITY</a>
+            </h3>
+            <ul class="space-y-6">
               <li>
-                <a href="#" class="hover:text-white">
-                  14기
-                </a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white">
-                  13기
-                </a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white">
-                  12기
-                </a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-white">
-                  11기
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-[#2b66ff] font-bold mb-5">COMMUNITY</h3>
-            <ul class="space-y-3 text-gray-400">
-              <li>
-                <a href="#" class="hover:text-white">
-                  모집공고
-                </a>
+                <a href="#">모집공고</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <hr class="border-[#1a1a1a] max-w-6xl mx-auto mb-10" />
+        {/*구분선*/}
+        <hr class="border-[#1a1a1a] mx-auto mb-16" />
 
         {/* 하단 정보 영역 */}
-        <div class="max-w-6xl mx-auto flex justify-between items-start">
-          {/* 왼쪽 INFO */}
-          <div class="flex-1 text-gray-400 leading-relaxed">
-            <h3 class="text-white font-bold mb-4 tracking-wider">INFO</h3>
-            <p>멋쟁이사자처럼 성결대학교 | 대표자 조승민</p>
-            <p>
+        <div class="pl-30 mx-auto flex justify-between items-start">
+          <div class="text-[#bbbbbb]">
+            <h3 class="text-white font-bold mb-4">INFO</h3>
+            <p class="text-xs pb-2">
+              멋쟁이사자처럼 성결대학교 | 대표자 조승민
+            </p>
+            <p class="text-xs pb-2 ">
               실습실: 경기도 안양시 만안구 성결대학로 53(안양동) 성결관,
               성결대학교
             </p>
-            <p>
+            <p class="text-xs ">
               동아리방: 경기도 안양시 만안구 성결대학로 53(안양동) 기념관 B11호
             </p>
           </div>
 
+          <div class="w-[1px] h-10 bg-[#1a1a1a] self-center "></div>
+
           {/* 가운데 CONTACT */}
-          <div class="flex flex-col items-center px-10">
-            <h3 class="text-white font-bold mb-4 tracking-wider">CONTACT</h3>
+          <div class="flex flex-col items-center px-10 mr-30">
+            <h3 class="text-white font-bold mb-5 ">CONTACT</h3>
             <div class="flex gap-4">
-              <span class="w-9 h-9 bg-white rounded-full flex items-center justify-center text-black cursor-pointer">
-                이
+              <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <a href="https://www.instagram.com/likelion_sku">
+                  <img
+                    src="./img/instagram.png"
+                    alt="instagram"
+                    class="w-6 h-6"
+                  ></img>
+                </a>
               </span>
-              <span class="w-9 h-9 bg-white rounded-full flex items-center justify-center text-black cursor-pointer">
-                카
+              <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <a href="https://pf.kakao.com/_vxixlaxj">
+                  <img
+                    src="./img/kakaotalk.png"
+                    alt="kakaotalk"
+                    class="w-6 h-6"
+                  ></img>
+                </a>
               </span>
-              <span class="w-9 h-9 bg-white rounded-full flex items-center justify-center text-black cursor-pointer">
-                메
+              <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                <a href="mailto:sungkyul.univ@likelion.org">
+                  <img src="./img/mail.png" alt="mail" class="w-6 h-6"></img>
+                </a>
               </span>
             </div>
           </div>
 
           {/* 오른쪽 TOP & Copyright */}
-          <div class="flex flex-col items-end text-right">
-            <a href="#" class="text-white font-bold mb-5">
+          <div class="flex flex-col text-right">
+            <a
+              href="#"
+              class="text-[#b0b0b0]  items-end text-sm font-semibold pr-2 mb-5"
+            >
               TOP ▲
             </a>
-            <p class="text-gray-600 text-xs leading-normal">
+            <p class="text-[#484848] font-semibold text-xs pt-2">
               SKU LIKELION 14th Edition
               <br />
               Copyright © 2026 SKU LIKELION. All rights reserved.
