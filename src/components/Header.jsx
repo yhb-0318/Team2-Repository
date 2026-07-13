@@ -58,16 +58,19 @@ const Header = () => {
             width: "52px",
           }}
         >
-          <img
-            src="./img/likelionLogo.png"
-            alt="logo"
-            className="w-9 h-9"
-            style={{ marginRight: "16px" }}
-          />
+          <a href="/">
+            <img
+              src="./img/likelionLogo.png"
+              alt="logo"
+              className="w-9 h-9"
+              style={{ marginRight: "16px" }}
+            />
+          </a>
         </div>
 
         {/* 브랜드 타이틀 명 */}
-        <span
+        <a
+          href="/"
           style={{
             color: isDropdownOpen ? "#1e1e1e" : "#3b7aff",
             fontSize: "20.7px",
@@ -77,7 +80,7 @@ const Header = () => {
           }}
         >
           LIKELION SKU
-        </span>
+        </a>
 
         {/* [중앙 영역] 상단 메인 메뉴 */}
         <div style={{ display: "flex", marginLeft: "20px" }}>
