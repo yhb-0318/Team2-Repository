@@ -4,6 +4,7 @@ import MainScreen from "./MainScreen";
 import TeamScreen from "./TeamScreen";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Project from "./Pages/Project";
 
 function App() {
   return (
