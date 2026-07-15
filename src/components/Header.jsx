@@ -94,7 +94,7 @@ const Header = () => {
         <div style={{ display: "flex", marginLeft: "20px" }}>
           <div style={{ width: "100px", textAlign: "center" }}>
             <a
-              href="#"
+              href="/project"
               style={{
                 color: isDropdownOpen ? "#1e1e1e" : "#FFF",
                 textDecoration: "none",
@@ -232,7 +232,6 @@ const Header = () => {
             {/* 좌측 여백 정렬용 투명 공간 */}
             <div style={{ width: "252px" }} />
 
-            {/* 1열: PROJECT 서브메뉴 (이동 가능하게 수정 완료) */}
             <div
               style={{
                 display: "flex",
@@ -243,7 +242,7 @@ const Header = () => {
               }}
             >
               <a
-                href="#"
+                href="/project?tab=14"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -254,7 +253,7 @@ const Header = () => {
                 14기
               </a>
               <a
-                href="#"
+                href="/project?tab=13"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -265,7 +264,7 @@ const Header = () => {
                 13기
               </a>
               <a
-                href="#"
+                href="/project?tab=12"
                 style={{
                   color: "#555555",
                   textDecoration: "none",
@@ -276,7 +275,7 @@ const Header = () => {
                 12기
               </a>
               <a
-                href="#"
+                href="/project?tab=11"
                 style={{
                   color: "#555555",
                   textDecoration: "none",

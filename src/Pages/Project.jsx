@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import projects from "../Data/ProjectData";
 import ProjectCard from "../Components/ProjectCard";
 
@@ -6,6 +7,29 @@ const TABS = ["전체", "14기", "13기", "12기", "11기"];
 
 export default function Project() {
   const [activeTab, setActiveTab] = useState("전체");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam) {
+      const matchedTab = `${tabParam}기`;
+      if (TABS.includes(matchedTab)) {
+        setActiveTab(matchedTab);
+      }
+    } else {
+      setActiveTab("전체");
+    }
+  }, [searchParams]);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+
+    if (tab === "전체") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ tab: tab.replace("기", "") });
+    }
+  };
 
   const filteredProjects =
     activeTab === "전체"
@@ -28,7 +52,7 @@ export default function Project() {
         {TABS.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => handleTabChange(tab)}
             className={`pb-3 text-base transition-colors ${
               activeTab === tab
                 ? "border-b-2 border-blue-500 font-semibold text-white"
@@ -53,7 +77,7 @@ export default function Project() {
       ) : (
         <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {filteredProjects.map((project) => (
-            <ProjjectCard key={project.id} {...project} />
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       )}

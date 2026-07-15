@@ -8,20 +8,20 @@ const Footer = () => {
         <div class="pl-30 mx-auto flex gap-24 mb-20">
           <div>
             <h3 class="text-[#3061ca] font-bold mb-5">
-              <a href="#">PROJECT</a>
+              <a href="/project">PROJECT</a>
             </h3>
             <ul class="space-y-6">
               <li>
-                <a href="#">14기</a>
+                <a href="/project?tab=14">14기</a>
               </li>
               <li>
-                <a href="#">13기</a>
+                <a href="/project?tab=13">13기</a>
               </li>
               <li>
-                <a href="#">12기</a>
+                <a href="/project?tab=12">12기</a>
               </li>
               <li>
-                <a href="#">11기</a>
+                <a href="/project?tab=11">11기</a>
               </li>
             </ul>
           </div>
