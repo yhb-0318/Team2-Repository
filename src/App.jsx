@@ -1,7 +1,15 @@
-import MainScreen from "./MainScreen";
+import Project from "./Pages/Project";
 
 function App() {
-  return <MainScreen />;
+  return <Project />;
 }
 
 export default App;
+
+// import MainScreen from "./MainScreen";
+
+// function App() {
+//   return <MainScreen />;
+// }
+
+// export default App;
